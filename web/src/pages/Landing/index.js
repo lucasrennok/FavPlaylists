@@ -1,19 +1,22 @@
 import React from 'react';
-//import {Link} from 'react-router-dom';
+import backgroundImg from '../../assets/images/background.png'
 
 import './styles.css';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 function Landing(){
     return (
-        <div id="page-landing">
-            <h1>HELLO WORLD</h1>
+        <div className="page-landing">
+            <PageHeader />
+            <div className="div-content">
+                <img src={backgroundImg} alt="background" className="backgroundImg"/>
+                <div className="text-landing">
+                    <h2>Welcome to</h2>
+                    <h1>FavPlaylists</h1>
+                </div>
+            </div>
         </div>
     )
 }
 
 export default Landing;
-
-// <Link to="/study" className="study"> 
-//     <img src={studyIcon} alt="Estudar"/>
-//     Estudar
-// </Link>
