@@ -5,6 +5,7 @@ import 'video-react/dist/video-react.css'; // import css
 
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import PlaylistVideos from '../../components/PlaylistVideos/PlaylistVideos';
 
 // I need to pass the URL
 function PlayerArea({props}){
@@ -12,15 +13,23 @@ function PlayerArea({props}){
     return (
         <div className="page-player">
             <PageHeader />
-            <div className="div-content">
-                <h2>{urlVideo}</h2>
+            <div className="div-content-videos">
+                <div className="div-content-player">
+                    <h2>Video_Title</h2>
 
-                <Player 
-                    className="videoplayer"
-                    playsInline
-                    src='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
-                />
+                    <Player 
+                        className="video-react-player"
+                        playsInline
+                        preload="auto"
+                        autoPlay
+                        muted
+                        src={urlVideo}
+                    ></Player>
 
+                </div>
+                <div className="div-playlists-player">
+                    <PlaylistVideos />
+                </div>
             </div>
         </div>
     )

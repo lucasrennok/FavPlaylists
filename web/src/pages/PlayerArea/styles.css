@@ -6,11 +6,52 @@
     height: 100vh;
 }
 
-.div-content{
+.div-content-videos{
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.videoplayer{
+.div-content-player{
+    margin: 0rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-playlists-player{
+    max-width: 100%;
+}
+
+.video-react-player{
+    overflow: hidden;
+}
+
+@media(min-width: 700px){
     
+    .div-content-videos{
+        display: flex;
+        flex-direction: row;
+        width: 99%;
+        margin: 1rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .div-content-player{
+        margin: 1rem;
+        width: 60%;
+        flex-direction: column;
+    }
+
+    .div-playlists-player{
+        margin: 1rem;
+        max-width: 36.5%;
+    }
+
 }
