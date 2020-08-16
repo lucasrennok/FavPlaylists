@@ -9,14 +9,14 @@ function PlaylistVideos(){
         <div className="text-playlists">
             <div className="playlist-videos">
                 <h2>Trailer</h2>
-                <Link to={{pathname: "/playerarea", state:'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}} className="video" >
+                <Link to={{pathname: "/playerarea", state:{urlVideo:'https://media.w3.org/2010/05/sintel/trailer_hd.mp4', titleVideo:'Sintel'}}} className="video" >
                     <h3>Sintel Trailer</h3>
                 </Link>
             </div>
 
             <div className="playlist-videos">
                 <h2>Movie</h2>
-                <Link to={{pathname: "/playerarea", state:'http://media.w3.org/2010/05/bunny/movie.mp4'}} className="video">
+                <Link to={{pathname: "/playerarea", state:{urlVideo:'http://media.w3.org/2010/05/bunny/movie.mp4', titleVideo:'Bunny'}}} className="video">
                     <h3>Bunny Movie</h3>
                 </Link>
             </div>
