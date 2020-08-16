@@ -8,10 +8,12 @@ import './styles.css'
 function PageHeader(){
     return(
         <header className="page-header">
-            <div className="div-playlist">
-                <img src={playlistIcon} alt="playlists" className="icons"/>
-                <h3>Playlists</h3>
-            </div>
+            <Link to="/playlists" className="list-types"> 
+                <div className="div-playlist">
+                    <img src={playlistIcon} alt="playlists" className="icons"/>
+                    <h3>Playlists</h3>
+                </div>
+            </Link>
 
             <div className="div-search">
                 <h3>Search</h3>
