@@ -6,3 +6,11 @@
     height: 100vh;
 }
 
+.div-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.videoplayer{
+    
+}
