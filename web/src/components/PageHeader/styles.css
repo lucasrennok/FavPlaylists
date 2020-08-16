@@ -28,12 +28,13 @@
     justify-content: center;
     margin: auto 0;
 }
-.homepage{
+.homepage, .list-types{
+    color: var(--color-secondary);
     text-decoration: none;
     transition-duration: 0.5s;
 }
 
-.homepage:hover{
+.homepage:hover, .list-types:hover{
     opacity: 80%;
     transition-duration: 0.5s;
 }
