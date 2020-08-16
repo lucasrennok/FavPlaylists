@@ -4,7 +4,7 @@ import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import PlaylistVideos from '../../components/PlaylistVideos/PlaylistVideos';
 
-function Landing(){
+function Playlists(){
     return (
         <div className="page-playlists">
             <PageHeader />
@@ -15,4 +15,4 @@ function Landing(){
     )
 }
 
-export default Landing;
+export default Playlists;

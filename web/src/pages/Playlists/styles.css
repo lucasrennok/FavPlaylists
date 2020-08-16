@@ -16,8 +16,20 @@
 }
 
 h1,h2{
-    color: var(--color-secondary-dark);
+    color: var(--color-secondary);
     text-shadow: 0.1rem 0.1rem var(--color-primary);
+}
+
+.video{
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    text-shadow: 0rem 0.1rem var(--color-secondary-dark);
+    transition-duration: 0.5s;
+}
+
+.video:hover{
+    opacity: 80%;
+    transition-duration: 0.5s;
 }
 
 @media(min-width: 700px){
