@@ -5,7 +5,7 @@ import 'video-react/dist/video-react.css'; // import css
 
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import Playlists from '../../components/Playlists/Playlists';
+import VideosList from '../../components/VideosList';
 
 // I need to pass the URL
 function PlayerArea({props}){
@@ -13,7 +13,7 @@ function PlayerArea({props}){
     const titleVideo = props.location.state.titleVideo;
     const videoPoster = 'https://thenextdoor.org/wp-content/uploads/2016/11/video_placeholder.jpg';
 
-    console.log("playlistId:", props.location.state.playlistId);
+    console.log("playlist:", props.location.state.playlist);
     //to pick the videos from a playlist
     return (
         <div className="page-player">
@@ -35,7 +35,7 @@ function PlayerArea({props}){
 
                 </div>
                 <div className="div-playlists-player">
-                    <Playlists />
+                    <VideosList playlist={props.location.state.playlist} />
                 </div>
             </div>
         </div>
