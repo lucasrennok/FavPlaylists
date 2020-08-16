@@ -5,12 +5,16 @@ import 'video-react/dist/video-react.css'; // import css
 
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import PlaylistVideos from '../../components/PlaylistVideos/PlaylistVideos';
+import Playlists from '../../components/Playlists/Playlists';
 
 // I need to pass the URL
 function PlayerArea({props}){
     const urlVideo = props.location.state.urlVideo;
     const titleVideo = props.location.state.titleVideo;
+    const videoPoster = 'https://thenextdoor.org/wp-content/uploads/2016/11/video_placeholder.jpg';
+
+    console.log("playlistId:", props.location.state.playlistId);
+    //to pick the videos from a playlist
     return (
         <div className="page-player">
             <PageHeader />
@@ -22,14 +26,16 @@ function PlayerArea({props}){
                         className="video-react-player"
                         playsInline
                         preload="auto"
-                        autoPlay
-                        muted
+                        fluid
+                        poster={videoPoster}
+                        // autoPlay
+                        // muted
                         src={urlVideo}
                     ></Player>
 
                 </div>
                 <div className="div-playlists-player">
-                    <PlaylistVideos />
+                    <Playlists />
                 </div>
             </div>
         </div>

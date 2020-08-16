@@ -2,17 +2,17 @@ import React from 'react';
 
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import PlaylistVideos from '../../components/PlaylistVideos/PlaylistVideos';
+import Playlists from '../../components/Playlists/Playlists';
 
-function Playlists(){
+function PlaylistsPage(){
     return (
         <div className="page-playlists">
             <PageHeader />
             <div className="div-content">
-                <PlaylistVideos />
+                <Playlists />
             </div>
         </div>
     )
 }
 
-export default Playlists;
+export default PlaylistsPage;
