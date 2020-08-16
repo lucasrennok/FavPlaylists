@@ -9,13 +9,14 @@ import PlaylistVideos from '../../components/PlaylistVideos/PlaylistVideos';
 
 // I need to pass the URL
 function PlayerArea({props}){
-    const urlVideo = props.location.state;
+    const urlVideo = props.location.state.urlVideo;
+    const titleVideo = props.location.state.titleVideo;
     return (
         <div className="page-player">
             <PageHeader />
             <div className="div-content-videos">
                 <div className="div-content-player">
-                    <h2>Video_Title</h2>
+                    <h2>{titleVideo}</h2>
 
                     <Player 
                         className="video-react-player"

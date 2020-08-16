@@ -21,7 +21,12 @@
     padding: 0.5rem;
 }
 
-.video{
+.playlist-videos h2{
+    font-size: 2.5rem;
+}
+
+.video h3{
+    font-size: 2rem;
 }
 
 @media(min-width: 700px){
