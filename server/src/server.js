@@ -6,4 +6,4 @@ app.get('/users', () => {
     console.log("Teste");
 });
 
-app.listen(3333);
+app.listen(3333)
