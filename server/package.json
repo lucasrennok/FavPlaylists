@@ -1,0 +1,13 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "javascript": "^1.0.0",
+    "node-dev": "^5.1.0"
+  },
+  "scripts": {
+    "start": "node-dev --respawn src/server.js"
+  }
+}
