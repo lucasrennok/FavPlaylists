@@ -7,6 +7,7 @@ function Playlists(){
     // api get the state url firstvideo, playlist_name, title first video
     const playlists = [{type:'Trailer',playlist: 'Sintel', urlVideo: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4', titleVideo: 'Sintel TRAILER'},{type: 'Movie',playlist: 'SintelMov', urlVideo: 'http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4', titleVideo: 'Sintel Movie'}]
     // api to get all types:
+    const typesPl = ['Trailer','Movie']
     // api to get things per type in a vector of vectors
     let playlistsMap = []
     for(let i=0; i<playlists.length; i++){
