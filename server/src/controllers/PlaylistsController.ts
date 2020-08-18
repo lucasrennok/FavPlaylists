@@ -14,6 +14,20 @@ export default class PlaylistsController{
         console.log(playlistIdSelected[0]);
         return response.json(playlistIdSelected[0]);
     }
+
+    async getPlaylistNames(request: Request, response: Response){
+        const {type} = request.query;
+        
+        const playlistSelected = await db('playlists')
+            .select('playlists.name')
+            .where('playlists.type', '=', type as string);
+            
+        let vector = []
+        for(let i=0; i<playlistSelected.length; i++){
+            vector[i] = playlistSelected[i].name;
+        }
+        return response.json({"playlists_names": vector});
+    }
     
     async create(request: Request, response: Response) {
         const{

@@ -12,6 +12,7 @@ routes.get('/type', typeController.getAllTypes);
 routes.post('/type', typeController.create);
 
 routes.get('/playlist/id', playlistsController.getIdFromTypeAndPlaylist)
+routes.get('/playlist', playlistsController.getPlaylistNames);
 routes.post('/playlist', playlistsController.create);
 
 routes.post('/playlist/videos', videosController.create);
