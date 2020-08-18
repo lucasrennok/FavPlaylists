@@ -1,15 +1,20 @@
 import express from 'express';
-//import ClassesController from './controllers/ClassesController';
-//import ConnectionsController from './controllers/ConnectionsController';
+import TypeController from './controllers/TypeController';
+import PlaylistsController from './controllers/PlaylistsController';
+import VideosController from './controllers/VideosController';
 
 const routes = express.Router();
-// const classesControlers = new ClassesController();
-// const connectionsController = new ConnectionsController();
+const typeController = new TypeController();
+const playlistsController = new PlaylistsController();
+const videosController = new VideosController();
 
-// routes.post('/classes', classesControlers.create);
-// routes.get('/classes', classesControlers.index);
+routes.get('/type', typeController.getAllTypes);
+routes.post('/type', typeController.create);
 
-// routes.post('/connections', connectionsController.create);
-// routes.get('/connections', connectionsController.index);
+routes.get('/playlist/id', playlistsController.getIdFromTypeAndPlaylist)
+routes.post('/playlist', playlistsController.create);
+
+routes.post('/playlist/videos', videosController.create);
+routes.get('/playlist/videos', videosController.getVideosFromPlaylist);
 
 export default routes;

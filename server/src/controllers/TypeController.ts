@@ -3,9 +3,16 @@ import {Request, Response} from 'express';
 import db from '../database/connection';
 
 export default class TypeController{
-    async index(request: Request, response: Response){
-        const filters = request.query;
-        return response.json({});
+    async getAllTypes(request: Request, response: Response){
+        const allTypesSelected = await db('playlist_types')
+            .select('type');
+
+        let vector = []
+        for(let i=0; i<allTypesSelected.length; i++){
+            vector[i] = allTypesSelected[i].type;
+        }
+        console.log({"types": vector});
+        return response.json({"types": vector});
     }
     
     async create(request: Request, response: Response) {
@@ -15,7 +22,7 @@ export default class TypeController{
 
         const trx = await db.transaction();
         try{
-            await trx('type').insert({
+            await trx('playlist_types').insert({
                 type
             });
     
