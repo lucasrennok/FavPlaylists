@@ -10,10 +10,10 @@ Web:
 - npm install --save video-react react react-dom redux
 
 Server:
-- yarn add ts-node-dev
 - yarn add express
 - yarn add @types/express
 - yarn add typescript
-- npm install -g ts-node
+- yarn add ts-node
+- yarn add ts-node-dev
 
 **Developing...**
