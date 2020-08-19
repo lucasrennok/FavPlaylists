@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import './styles.css'
 
 function PageHeader(){
+
     return(
         <header className="page-header">
             <Link to="/playlists" className="list-types"> 
