@@ -26,6 +26,7 @@ export default class PlaylistsController{
         for(let i=0; i<playlistSelected.length; i++){
             vector[i] = playlistSelected[i].name;
         }
+        console.log({"playlists_names": vector});
         return response.json({"playlists_names": vector});
     }
     
