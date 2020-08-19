@@ -1,54 +1,59 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import api from '../../services/api'
 import {Link} from 'react-router-dom';
 import './styles.css'
 
-function getPlaylists(type){
-    let playlists = ['Sintel','Test']
-    // await api.get('playlist?type='+type).then(response => {
-    //     playlists = response.data.playlists_names;
-    // });
+async function getPlaylists(type){
+    let playlists = []
+
+    await api.get('playlist?type='+type).then(response => {
+        playlists = response.data.playlists_names;
+    });
     // get first video from all
     let data = []
     for(let i=0; i<playlists.length; i++){
         data[data.length]=(
-            <Link to={{pathname: "/playerarea", state:{playlist: playlists[i], type: type, urlVideo: 'playlists[i].url', titleVideo: 'playlists[i].title', poster: 'playlists[i].poster' }}} className="video" >
+            <Link to={{pathname: "/playerarea", state:{playlist: playlists[i], type: type, urlVideo: playlists[i].url, titleVideo: playlists[i].title, poster: playlists[i].poster }}} className="video" >
                 <h3>{playlists[i]}</h3>
+                <h1>teste</h1>
             </Link>
-        )
+        );
     }
-    // console.log(data);
     return data;
 }
 
-function getTypes(){
-    let typesPl = ['Trailer','Movie']
-    // await api.get('type').then(response => {
-    //     typesPl = response.data;
-    // });
-    return typesPl;
-}
-
-function Playlists(){
-    // api get the state url firstvideo, playlist_name, title first video
+async function getType(){
+    let typesPl = [];
     let playlistsMap = []
-    let typesPl = []
-    typesPl = getTypes()
+
+    await api.get('type').then(response => {
+        typesPl = response.data.types;
+    });
+
     for(let i=0; i<typesPl.length; i++){
+        let pls = await getPlaylists(typesPl[i]);
         playlistsMap[playlistsMap.length]=(
-            <div className="playlist-videos" key={typesPl[i]}>
+            <div className="playlist-videos" >
                 <h2>{typesPl[i]}</h2>
-                {getPlaylists(typesPl[i])}
+                {pls}
             </div>
         )
     }
-    //deu ruim, a função assincrona ta executando mas ta retornando os valores antes
-    // não da pra transformar essa funcao em assincrona por causa das outras páginas
-    console.log(typesPl);
+
+    //conferindo
+    console.log(playlistsMap);
+
+    const divPls = document.getElementById('type-pls');
+    divPls.append(playlistsMap);
+}
+
+function Playlists(){
+    // api get data and send to 'type-pls' div
+    getType();
 
     return(
-        <div className="text-playlists">
-            {playlistsMap}
+        <div className="text-playlists" id="type-pls">
+            {/* playlists here */}
         </div>
     )
 }
