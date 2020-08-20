@@ -17,7 +17,7 @@ function PageHeader(){
             </Link>
 
             <div className="div-search">
-                <h3>Search</h3>
+                <h3>Search videos</h3>
                 <input type="text" className="searchInput" />
             </div>
 

@@ -1,0 +1,36 @@
+.search-page{
+    display: flex;
+    flex-direction: column;
+    background: var(--color-grey);
+    width: 100vw;
+    height: 100vh;
+}
+
+.search-content{
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    background: var(--color-white);
+}
+
+#result{
+    align-self: center;
+    justify-self: center;
+    margin: 1rem;
+}
+
+@media(min-width: 700px){
+    
+    .search-content{
+        flex-direction: row;
+        padding: 2rem;
+        margin: 2rem 6rem;
+    }
+
+    .playlist-area{
+        margin: 1rem auto;
+    }
+}

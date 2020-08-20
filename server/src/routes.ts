@@ -21,5 +21,6 @@ routes.post('/playlist/videos', videosController.create);
 routes.get('/playlist/videos', videosController.getVideosFromPlaylist);
 
 routes.post('/create', createController.create);
+routes.get('/search', createController.getSearch)
 
 export default routes;

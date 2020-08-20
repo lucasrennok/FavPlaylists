@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
 import 'video-react/dist/video-react.css'; // import css
 import api from '../../services/api'
@@ -6,6 +7,8 @@ import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
 function CreatePlaylist(){
+    const history = useHistory()
+
     const [type, setType] = useState('');
     const [playlist, setPlaylist] = useState('');
     const [title, setTitle] = useState('');
@@ -24,6 +27,8 @@ function CreatePlaylist(){
             poster
         }).then(() => {
             alert('Cadastro realizado com sucesso!');
+            
+            history.push('/playlists')
         }).catch(() => {
             alert('Erro no cadastro!');
         })

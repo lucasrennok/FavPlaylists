@@ -3,6 +3,23 @@ import {Request, Response} from 'express';
 import db from '../database/connection';
 
 export default class CreateController{
+    async getSearch(request: Request, response: Response){
+        const {search} = request.query;
+        let searchAux;
+        if(search===undefined){
+            searchAux = '';
+        }else{
+            searchAux = search;
+        }
+
+        const searchSelected = await db('videos')
+            .join('playlists', 'playlists.id', '=', 'videos.playlist_id')
+            .select('videos.title','videos.url','videos.poster', 'playlists.type', 'playlists.name')
+            .where('videos.title', 'like', '%'+searchAux+'%');
+            
+        return response.json(searchSelected);
+    }
+
     async create(request: Request, response: Response) {
         const{
             type,
