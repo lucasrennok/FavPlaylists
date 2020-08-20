@@ -21,6 +21,7 @@ function SearchPage(props){
                         videosF[videosF.length] = (
                             <VideosList key={playlists_names[j]} type={types[i]} playlist={playlists_names[j]} search={search_text}/>
                         )
+                        console.log(types[i], playlists_names[j])
                     }
                     let videosAux = [...videosF, ...videosFound]
                     setVideosFound(videosAux);
