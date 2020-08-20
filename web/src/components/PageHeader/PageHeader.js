@@ -21,7 +21,7 @@ function PageHeader(){
                 <input type="text" className="searchInput" />
             </div>
 
-            <Link to="/" className="homepage"> 
+            <Link to="/create_playlist" className="homepage"> 
                 <div className="div-logo">
                     <h2>FavPL</h2>
                     <img src={logoIcon} alt="logo" className="icons"/>
