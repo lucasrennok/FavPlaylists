@@ -36,7 +36,7 @@ function PlayerArea({props}){
 
                 </div>
                 <div className="div-playlists-player">
-                    <VideosList type={type_playlist} playlist={playlist_name}/>
+                    <VideosList type={type_playlist} playlist={playlist_name} search='' />
                 </div>
             </div>
         </div>
