@@ -13,7 +13,7 @@ function Routes(){
             <Route path="/create_playlist" component={CreatePlaylist} />
             <Route path="/playlists" component={PlaylistsPage} />
             <Route path="/playerarea" component={(data) => <PlayerArea props={data} />}/>
-            <Route path="/search" component={SearchPage}/>
+            <Route path="/search" component={(data) => <SearchPage props={data} />}/>
         </BrowserRouter>
     )
 }

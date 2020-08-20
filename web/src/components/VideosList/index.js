@@ -17,10 +17,8 @@ function VideosList(props){
                 setVideosData(response.data);
             })
         }else{
-            console.log('pesquisa')
             api.get('search?search='+filter_search+'&type='+type_playlist+'&playlist='+playlist_name).then(response=>{
                 setVideosData(response.data);
-                console.log(response.data)
             });
         }
     },[]);
