@@ -5,9 +5,8 @@ import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import VideosList from '../../components/VideosList';
 
-function SearchPage(props){
-    const search_text = 'e';
-    // vector guardando todos os videoslists (type,playlist)
+function SearchPage({props}){
+    const search_text = props.location.state.search;
 
     const [videosFound, setVideosFound] = useState([]);
     useEffect(()=>{
@@ -21,7 +20,6 @@ function SearchPage(props){
                         videosF[videosF.length] = (
                             <VideosList key={playlists_names[j]} type={types[i]} playlist={playlists_names[j]} search={search_text}/>
                         )
-                        console.log(types[i], playlists_names[j])
                     }
                     let videosAux = [...videosF, ...videosFound]
                     setVideosFound(videosAux);

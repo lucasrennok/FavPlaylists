@@ -3,7 +3,7 @@
     flex-direction: column;
     background: var(--color-grey);
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
 }
 
 .search-content{
@@ -14,8 +14,8 @@
     margin: 1rem 2rem;
     padding: 1rem;
     background: var(--color-white);
-    align-items: inherit;
     justify-content: center;
+    align-items: center;
 }
 
 #result{
@@ -27,12 +27,16 @@
 @media(min-width: 700px){
     
     .search-content{
+        display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         padding: 2rem;
         margin: 2rem 6rem;
     }
 
     .playlist-area{
         margin: 1rem 1rem;
+        justify-content: center;
+        align-items: center;
     }
 }
