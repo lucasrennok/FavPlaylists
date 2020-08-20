@@ -17,8 +17,10 @@ function VideosList(props){
                 setVideosData(response.data);
             })
         }else{
-            api.get('search?search='+filter_search).then(response=>{
+            console.log('pesquisa')
+            api.get('search?search='+filter_search+'&type='+type_playlist+'&playlist='+playlist_name).then(response=>{
                 setVideosData(response.data);
+                console.log(response.data)
             });
         }
     },[]);
@@ -32,11 +34,14 @@ function VideosList(props){
         </Link>)
     }
     return(
-        <div className="playlist-area">
-            <div className="playlist-list">
-                <h2>{videos.length>0? playlist_name : ''}</h2>
-                {videos}
-            </div>
+        <div>
+            { videos.length>0?
+            (<div className="playlist-area">
+                <div className="playlist-list">
+                    <h2>{videos.length>0? playlist_name : ''}</h2>
+                    {videos}
+                </div>
+            </div>) : ''}
         </div>
     );
 }

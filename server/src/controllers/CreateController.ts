@@ -4,7 +4,7 @@ import db from '../database/connection';
 
 export default class CreateController{
     async getSearch(request: Request, response: Response){
-        const {search} = request.query;
+        const {type,playlist,search} = request.query;
         let searchAux;
         if(search===undefined){
             searchAux = '';
@@ -14,9 +14,12 @@ export default class CreateController{
 
         const searchSelected = await db('videos')
             .join('playlists', 'playlists.id', '=', 'videos.playlist_id')
+            .where('playlists.name','=',playlist as string)
+            .where('playlists.type','=',type as string)
             .select('videos.title','videos.url','videos.poster', 'playlists.type', 'playlists.name')
             .where('videos.title', 'like', '%'+searchAux+'%');
-            
+        
+        console.log(searchSelected)
         return response.json(searchSelected);
     }
 
