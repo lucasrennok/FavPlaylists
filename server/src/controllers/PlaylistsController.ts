@@ -33,9 +33,15 @@ export default class PlaylistsController{
     async create(request: Request, response: Response) {
         const{
             type,
-            name,
-            id
+            name
         } = request.body;
+
+        const idSelected = await db('playlists').max('id');
+        let id = idSelected[0]['max(`id`)']+1;
+        
+        if(typeof id!=='number' || id===undefined){
+            id = 1;
+        }
 
         const trx = await db.transaction();
         try{
