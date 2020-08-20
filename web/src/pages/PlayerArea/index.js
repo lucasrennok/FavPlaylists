@@ -12,9 +12,9 @@ function PlayerArea({props}){
     const urlVideo = props.location.state.urlVideo;
     const titleVideo = props.location.state.titleVideo;
     const videoPoster = 'https://thenextdoor.org/wp-content/uploads/2016/11/video_placeholder.jpg';
-    console.log(props)
-    // console.log("type:", props.location.state.type);
-    // console.log("playlist:", props.location.state.playlist);
+    const type_playlist = props.location.state.type;
+    const playlist_name = props.location.state.playlist;
+
     //to pick the videos from a playlist
     return (
         <div className="page-player">
@@ -36,7 +36,7 @@ function PlayerArea({props}){
 
                 </div>
                 <div className="div-playlists-player">
-                    <VideosList playlist={props.location.state.playlist} type={props.location.state.type}/>
+                    <VideosList type={type_playlist} playlist={playlist_name}/>
                 </div>
             </div>
         </div>
