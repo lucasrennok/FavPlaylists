@@ -1,31 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import 'video-react/dist/video-react.css'; // import css
-
+import api from '../../services/api'
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
 function CreatePlaylist(){
+    const [type, setType] = useState('');
+    const [playlist, setPlaylist] = useState('');
+    const [title, setTitle] = useState('');
+    const [url, setUrl] = useState('');
+    const [poster, setPoster] = useState('');
+
+    function handleSubmitButton(event){
+        event.preventDefault();
+        const name = playlist;
+
+        api.post('create', {
+            type,
+            name,
+            title,
+            url,
+            poster
+        }).then(() => {
+            alert('Cadastro realizado com sucesso!');
+        }).catch(() => {
+            alert('Erro no cadastro!');
+        })
+    }
+
     return (
         <div className="create-playlist">
             <PageHeader />
-            <div className="post-content">
+            <main className="post-content">
                 <h2>Create/Modify Playlist</h2>
-                <div className="label-input">
-                    <h3 className="label">Playlist Type</h3>
-                    <input type="text" placeholder="type name"></input>
+                <form onSubmit={handleSubmitButton}>
+                    <fieldset className="label-input">
+                        <legend className="label">Playlist Type</legend>
+                        <input 
+                            type="text" 
+                            placeholder="type name"
+                            value={type} 
+                            onChange={(e)=>{ setType(e.target.value) }}
+                        ></input>
+                    </fieldset>
 
-                    <h3 className="label">Playlist Name</h3>
-                    <input type="text" placeholder="playlist name"></input>
+                    <fieldset className="label-input">
+                        <legend className="label">Playlist Name</legend>
+                        <input 
+                            type="text" 
+                            placeholder="playlist name"
+                            value={playlist} 
+                            onChange={(e)=>{ setPlaylist(e.target.value) }}
+                        ></input>
+                    </fieldset>
 
-                    <h3 className="label">Add Videos</h3>
-                    <input type="text" placeholder="title"></input>
-                    <input type="text" placeholder="url"></input>
-                    <input type="text" placeholder="poster"></input>
+                    <fieldset className="label-input">
+                        <legend className="label">Add Videos</legend>
+                        <input 
+                            type="text" 
+                            placeholder="title"
+                            value={title} 
+                            onChange={(e)=>{ setTitle(e.target.value) }}
+                        ></input>
+                        <input 
+                            type="text" 
+                            placeholder="url"
+                            value={url} 
+                            onChange={(e)=>{ setUrl(e.target.value) }}
+                        ></input>
+                        <input 
+                            type="text" 
+                            placeholder="poster"
+                            value={poster} 
+                            onChange={(e)=>{ setPoster(e.target.value) }}
+                        ></input>
+                    </fieldset>
 
-                    <input id="submit-button" type="submit"></input>
-                </div>
-            </div>
+                    <button id="submit-button" type="submit">Submit</button>
+                </form>
+            </main>
         </div>
     )
 }
