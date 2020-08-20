@@ -18,17 +18,16 @@ function Playlists(){
                     await api.get('playlist?type='+typesPl[i]).then(response => {
                         let playlists = response.data.playlists_names;
                         let data = []
-                        for(let i=0; i<playlists.length; i++){
+                        for(let j=0; j<playlists.length; j++){
                             data.push(
-                                <Link to={{pathname: "/playerarea", state:{playlist: playlists[i], type: typesPl[i], urlVideo: playlists[i].url, titleVideo: playlists[i].title, poster: playlists[i].poster }}} className="video" >
-                                    <h3>{playlists[i]}</h3>
+                                <Link key={playlists[j]} to={{pathname: "/playerarea", state:{playlist: playlists[j], type: typesPl[i], urlVideo: '', titleVideo: 'Playlist: '+playlists[j]}}} className="video" >
+                                    <h3>{playlists[j]}</h3>
                                 </Link>
                             );
                         }
                         pls = data
-                        console.log(pls);
                         playlistsMap.push(
-                            <div className="playlist-videos" >
+                            <div key={typesPl[i]} className="playlist-videos" >
                                 <h2>{typesPl[i]}</h2>
                                 {pls}
                             </div>
