@@ -33,6 +33,24 @@
     overflow: hidden;
 }
 
+#setRepeat{
+    display: flex;
+    flex-direction: row;
+    width: 55vw;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#setRepeat button{
+    overflow: hidden; /* */
+    background-color: var(--color-primary-light);
+    width: 45%;
+}
+
+#setRepeat button:hover{
+    opacity: 80%;
+}
+
 @media(min-width: 700px){
     
     .div-content-videos{
