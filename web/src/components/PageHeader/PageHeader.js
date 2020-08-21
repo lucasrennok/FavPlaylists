@@ -8,7 +8,7 @@ import './styles.css'
 function PageHeader(){
 
     const [searchText, setSearchText] = useState('');
-    const [button, setButton] = useState();
+    const [button, setButton] = useState([]);
 
     function handleSearchText(event){
         const text = event.target.value
@@ -17,8 +17,12 @@ function PageHeader(){
 
     function startSearch(event){
         if(event.key==='Enter'){
-            setButton(
-                <Redirect to={{pathname:"/search", state: {search: searchText}}} />)
+            if(window.location.pathname==='/search'){
+                window.location.reload();
+            }
+            setButton([
+                <Redirect to={{pathname:"/search", state: {search: searchText}}} />
+            ])
         }
     }
 
