@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Player } from 'video-react';
 import 'video-react/dist/video-react.css'; // import css
@@ -15,6 +15,31 @@ function PlayerArea({props}){
     const type_playlist = props.location.state.type;
     const playlist_name = props.location.state.playlist;
 
+    const [player, setPlayer] = useState(undefined);
+    const [firstPoint,setFirstPoint] = useState(0);
+    const [secondPoint,setSecondPoint] = useState(0);
+
+    function handleFirstPoint(){
+        const statePlayer = player.getState()
+        if(statePlayer.player.currentTime<secondPoint){
+            setFirstPoint(statePlayer.player.currentTime);
+        }else{
+            window.alert('Select the second point first and after the first point');
+        }
+    }
+
+    function handleSecondPoint(){
+        const statePlayer = player.getState()
+        setSecondPoint(statePlayer.player.currentTime);
+    }
+
+    // useEffect(()=>{
+    //     const time = 10
+    //     if(time>secondPoint && secondPoint!==0){
+    //         player.seek(firstPoint);
+    //     }
+    // },[])
+
     //to pick the videos from a playlist
     return (
         <div className="page-player">
@@ -24,6 +49,7 @@ function PlayerArea({props}){
                     <h2>{titleVideo}</h2>
 
                     <Player 
+                        ref={(player) => {setPlayer(player)}}
                         className="video-react-player"
                         playsInline
                         preload="auto"
@@ -33,6 +59,11 @@ function PlayerArea({props}){
                         // muted
                         src={urlVideo}
                     ></Player>
+
+                    <div id="setRepeat">
+                        <button onClick={handleFirstPoint}>FP</button>
+                        <button onClick={handleSecondPoint}>SP</button>
+                    </div>
 
                 </div>
                 <div className="div-playlists-player">
