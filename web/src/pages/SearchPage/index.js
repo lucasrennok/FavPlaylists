@@ -7,8 +7,8 @@ import VideosList from '../../components/VideosList';
 
 function SearchPage({props}){
     const search_text = props.location.state.search;
-
     const [videosFound, setVideosFound] = useState([]);
+
     useEffect(()=>{
         api.get('type').then(async response => {
             let videosF = []
