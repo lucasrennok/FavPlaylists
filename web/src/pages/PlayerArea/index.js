@@ -31,36 +31,49 @@ function PlayerArea({props}){
 
     function handleFirstPoint(){
         const statePlayer = player.getState()
-        if(statePlayer.player.currentTime<secondPoint){
-            setFirstPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
-        }else{
-            window.alert('Select the second point first');
-        }
+        setFirstPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
     }
 
     function handleSecondPoint(){
         const statePlayer = player.getState()
-        if(statePlayer.player.currentTime>firstPoint){
-            setSecondPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
-        }else{
-            window.alert('The second point has to be after the first point');
+        setSecondPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
+    }
+
+    function sleepSimple(){
+        return new Promise(resolve => setTimeout(resolve, 1000));
+    }
+
+    async function sleepTimer(ms, playback){
+        for(let i=0; i<ms; i+=1000){
+            await sleepSimple();
+            if(player.getState().player.paused || player.getState().player.playbackRate!==playback){
+                break;
+            }
         }
     }
 
-    function sleep(ms){
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async function handleStartReplay(){
+        
         const playback = player.getState().player.playbackRate;
-        if(secondPoint-firstPoint>3 && player.getState().player.paused===false && playReplayButton==='Start'){
+        const fp = firstPoint;
+        const sp = secondPoint;
+
+        if(firstPoint>secondPoint){
+            let aux = firstPoint;
+            setFirstPoint(secondPoint);
+            setSecondPoint(aux);
+            window.alert('Points changed, click Start button again');
+        }else if(secondPoint-firstPoint>3 && player.getState().player.paused===false && playReplayButton==='Start'){
             player.seek(firstPoint);
             setPlayReplayButton('Running');
-            await sleep(((secondPoint-firstPoint)/player.getState().player.playbackRate)*1000);
+            await sleepTimer(((secondPoint-firstPoint)/player.getState().player.playbackRate)*1000, playback);
             if(player.getState().player.paused===false && player.getState().player.playbackRate===playback){
-                await handleStartReplay();
+                handleStartReplay();
+                setFirstPoint(fp); //visual fix
+                setSecondPoint(sp);
+            }else{
+                setPlayReplayButton('Start');
             }
-            setPlayReplayButton('Start');
         }else if(secondPoint-firstPoint<=3){
             player.pause()
             window.alert('Time between the first point and the second point is very short. <= 3secs')
