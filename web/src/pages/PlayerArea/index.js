@@ -52,11 +52,12 @@ function PlayerArea({props}){
     }
 
     async function handleStartReplay(){
+        const playback = player.getState().player.playbackRate;
         if(secondPoint-firstPoint>3 && player.getState().player.paused===false && playReplayButton==='Start'){
             player.seek(firstPoint);
             setPlayReplayButton('Running');
-            await sleep((secondPoint-firstPoint)*1000);
-            if(player.getState().player.paused===false){
+            await sleep(((secondPoint-firstPoint)/player.getState().player.playbackRate)*1000);
+            if(player.getState().player.paused===false && player.getState().player.playbackRate===playback){
                 await handleStartReplay();
             }
             setPlayReplayButton('Start');
