@@ -6,6 +6,13 @@ import 'video-react/dist/video-react.css'; // import css
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import VideosList from '../../components/VideosList';
+import ControlBar from 'video-react/lib/components/control-bar/ControlBar';
+import ReplayControl from 'video-react/lib/components/control-bar/ReplayControl';
+import ForwardControl from 'video-react/lib/components/control-bar/ForwardControl';
+import PlaybackRateMenuButton from 'video-react/lib/components/control-bar/PlaybackRateMenuButton';
+import VolumeMenuButton from 'video-react/lib/components/control-bar/VolumeMenuButton';
+import LoadingSpinner from 'video-react/lib/components/LoadingSpinner';
+import BigPlayButton from 'video-react/lib/components/BigPlayButton';
 
 // I need to pass the URL
 function PlayerArea({props}){
@@ -24,21 +31,38 @@ function PlayerArea({props}){
         if(statePlayer.player.currentTime<secondPoint){
             setFirstPoint(statePlayer.player.currentTime);
         }else{
-            window.alert('Select the second point first and after the first point');
+            window.alert('Select the second point first');
         }
     }
 
     function handleSecondPoint(){
         const statePlayer = player.getState()
-        setSecondPoint(statePlayer.player.currentTime);
+        if(statePlayer.player.currentTime>firstPoint){
+            setSecondPoint(statePlayer.player.currentTime);
+        }else{
+            window.alert('The second point has to be after the first point');
+        }
     }
 
-    // useEffect(()=>{
-    //     const time = 10
-    //     if(time>secondPoint && secondPoint!==0){
-    //         player.seek(firstPoint);
-    //     }
-    // },[])
+    function sleep(ms){
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function handleStartReplay(){
+        if(secondPoint-firstPoint>3 && player.getState().player.paused===false){
+            player.seek(firstPoint);
+            await sleep((secondPoint-firstPoint)*1000);
+            console.log('a')
+            handleStartReplay();
+        }else if(secondPoint-firstPoint<=3){
+            player.pause()
+            window.alert('Time between the first point and the second point is very short. <= 3secs')
+        }
+    }
+    
+    function handlePlayer(newPlayer){
+        setPlayer(newPlayer);
+    }
 
     //to pick the videos from a playlist
     return (
@@ -49,7 +73,6 @@ function PlayerArea({props}){
                     <h2>{titleVideo}</h2>
 
                     <Player 
-                        ref={(player) => {setPlayer(player)}}
                         className="video-react-player"
                         playsInline
                         preload="auto"
@@ -58,11 +81,21 @@ function PlayerArea({props}){
                         // autoPlay
                         // muted
                         src={urlVideo}
-                    ></Player>
+                        ref={(player) => {handlePlayer(player);}}
+                    >
+                        <BigPlayButton position="center" />
+                        <ControlBar>
+                            <VolumeMenuButton vertical />
+                            <ReplayControl seconds={30} order={2.1} />
+                            <ForwardControl seconds={30} order={3.1} />
+                            <PlaybackRateMenuButton rates={[5, 2, 1, 0.5, 0.1]} order={7.1}/>
+                        </ControlBar>
+                    </Player>
 
                     <div id="setRepeat">
-                        <button onClick={handleFirstPoint}>FP</button>
-                        <button onClick={handleSecondPoint}>SP</button>
+                        <button onClick={handleStartReplay}>Start</button>
+                        <button onClick={handleFirstPoint}>First Point</button>
+                        <button onClick={handleSecondPoint}>Second Point</button>
                     </div>
 
                 </div>
