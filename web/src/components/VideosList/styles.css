@@ -26,8 +26,8 @@
 .video-thumb{
     display: flex;
     flex-direction: column;
-    color: var(--color-primary-dark);
-    text-shadow: 0rem 0.1rem var(--color-secondary);
+    color: var(--color-secondary);
+    text-shadow: 0rem 0.1rem var(--color-primary-dark);
     text-decoration: none;
     padding: 0.2rem;
     transition-duration: 0.2s;

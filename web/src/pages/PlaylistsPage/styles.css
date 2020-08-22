@@ -22,8 +22,8 @@ h1,h2{
 
 .video{
     text-decoration: none;
-    color: var(--color-primary-dark);
-    text-shadow: 0rem 0.1rem var(--color-secondary-dark);
+    color: var(--color-secondary-dark);
+    text-shadow: 0rem 0.1rem var(--color-primary);
     transition-duration: 0.5s;
 }
 

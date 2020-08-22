@@ -7,13 +7,9 @@
 }
 
 .search-content{
-    border-radius: 1.2rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 1rem 2rem;
-    padding: 1rem;
-    background: var(--color-white);
     justify-content: center;
     align-items: center;
 }

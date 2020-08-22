@@ -16,4 +16,8 @@ Server:
 - yarn add ts-node
 - yarn add ts-node-dev
 
+## Future
+1. [ ] Download replay
+2. [ ] Add more videos in a playlist on one submit
+
 **Developing...**
