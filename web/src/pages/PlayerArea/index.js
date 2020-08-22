@@ -53,7 +53,7 @@ function PlayerArea({props}){
     }
 
     async function handleStartReplay(){
-        
+        const butStart = document.getElementById('startButton');
         const playback = player.getState().player.playbackRate;
         const fp = firstPoint;
         const sp = secondPoint;
@@ -66,6 +66,7 @@ function PlayerArea({props}){
         }else if(secondPoint-firstPoint>3 && player.getState().player.paused===false && playReplayButton==='Start'){
             player.seek(firstPoint);
             setPlayReplayButton('Running');
+            butStart.disabled = true;
             await sleepTimer(((secondPoint-firstPoint)/player.getState().player.playbackRate)*1000, playback);
             if(player.getState().player.paused===false && player.getState().player.playbackRate===playback){
                 handleStartReplay();
@@ -73,6 +74,7 @@ function PlayerArea({props}){
                 setSecondPoint(sp);
             }else{
                 setPlayReplayButton('Start');
+                butStart.disabled = false;
             }
         }else if(secondPoint-firstPoint<=3){
             player.pause()
@@ -114,7 +116,7 @@ function PlayerArea({props}){
 
                     <div id="setRepeat">
                         <label id="repeat-text">Repeat between:</label>
-                        <button onClick={handleStartReplay}>{playReplayButton}</button>
+                        <button onClick={handleStartReplay} id="startButton" disabled={false}>{playReplayButton}</button>
                         <button onClick={handleFirstPoint}>First Point: {secondsToMinutesToHours(firstPoint)}</button>
                         <button onClick={handleSecondPoint}>Second Point: {secondsToMinutesToHours(secondPoint)}</button>
                     </div>
