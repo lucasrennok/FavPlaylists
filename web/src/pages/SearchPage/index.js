@@ -30,7 +30,7 @@ function SearchPage({props}){
 
     return (
         <div className="search-page">
-            <PageHeader />
+        <PageHeader />
             <h1 id="result">Results</h1>
             <div className="search-content">
                 {videosFound}
