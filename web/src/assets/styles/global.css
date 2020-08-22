@@ -37,6 +37,10 @@ body,input,button,textarea{
     color: var(--color-secondary-dark);
 }
 
+input{
+    color: var(--color-secondary-darker);
+}
+
 h1,h2{   
     font: 500 2.2rem Poppins;
 }
