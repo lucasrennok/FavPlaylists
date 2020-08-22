@@ -12,7 +12,7 @@
     flex-direction: column;
     margin: 1rem 2rem;
     padding: 1rem;
-    background: var(--color-white);
+    background: var(--color-primary);
 }
 
 .label-input{
@@ -34,9 +34,14 @@
 }
 
 #submit-button{
+    background-color: var(--color-primary-light);
+    font-weight: 700;
     margin-top: 1rem;
     padding: 1rem 2rem;
     width: 100%;
+}
+#submit-button:hover{
+    opacity: 80%;
 }
 
 @media(min-width: 700px){

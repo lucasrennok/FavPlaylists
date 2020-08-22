@@ -1,20 +1,11 @@
 :root {
-    --color-primary-lighter: #7b7785;
-    --color-primary-light: #5a5664;
-    --color-primary: #312d38;
+    --color-primary-light: #565764;
+    --color-primary: #2d333d;
     --color-primary-dark: #24252e;
-    --color-primary-darker: #100f11;
-    --color-secondary-light: #55ee9a;
-    --color-secondary: #04D361;
-    --color-secondary-dark: #04BF58;
-    --color-secondary-darker: #20442654;
-    --color-title-in-primary: #1a1717;
-    --color-grey: #9C98A6;
-    --color-white: #E6E6F0;
-    --color-input-background: #F8F8FC;
-    --color-button-text: #FFFFFF;
-    --color-box-base: #FFFFFF;
-    --color-box-footer: #FAFAFC;
+    --color-secondary: #8cf4fc;
+    --color-secondary-dark: #04cbe3;
+    --color-secondary-darker: #08a8b9;
+    --color-grey: #54646c;
 
     font-size: 60%;
 }
@@ -30,7 +21,7 @@ html,body,#root{
 }
 
 body{
-    background: var(--color-primary-lighter);
+    background: var(--color-grey);
     height: 100%;
     width: 100%;
 }
@@ -42,8 +33,12 @@ body{
 }
 
 body,input,button,textarea{
-    font: 500 1.6rem Poppins;
+    font: 400 1.6rem Archivo;
     color: var(--color-secondary-dark);
+}
+
+h1,h2{   
+    font: 500 2.2rem Poppins;
 }
 
 .container{

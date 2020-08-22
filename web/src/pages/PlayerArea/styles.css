@@ -42,9 +42,10 @@
 }
 
 #setRepeat button{
-    overflow: hidden; /* */
+    overflow: hidden;
     background-color: var(--color-primary-light);
     width: 25%;
+    height: 100%;
 }
 
 #setRepeat button:hover{
@@ -52,7 +53,8 @@
 }
 
 #repeat-text{
-    text-shadow: 1px 1px var(--color-secondary-darker);
+    color: var(--color-secondary-dark);
+    text-shadow: 1px 1px var(--color-primary);
 }
 
 @media(min-width: 700px){
