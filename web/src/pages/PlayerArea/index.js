@@ -25,6 +25,7 @@ function PlayerArea({props}){
     const [player, setPlayer] = useState(undefined);
     const [firstPoint,setFirstPoint] = useState(0);
     const [secondPoint,setSecondPoint] = useState(0);
+    const [playReplayButton, setPlayReplayButton] = useState('Start');
 
     function handleFirstPoint(){
         const statePlayer = player.getState()
@@ -49,11 +50,12 @@ function PlayerArea({props}){
     }
 
     async function handleStartReplay(){
-        if(secondPoint-firstPoint>3 && player.getState().player.paused===false){
+        if(secondPoint-firstPoint>3 && player.getState().player.paused===false && playReplayButton==='Start'){
             player.seek(firstPoint);
+            setPlayReplayButton('Running');
             await sleep((secondPoint-firstPoint)*1000);
-            console.log('a')
-            handleStartReplay();
+            await handleStartReplay();
+            setPlayReplayButton('Start');
         }else if(secondPoint-firstPoint<=3){
             player.pause()
             window.alert('Time between the first point and the second point is very short. <= 3secs')
@@ -93,9 +95,9 @@ function PlayerArea({props}){
                     </Player>
 
                     <div id="setRepeat">
-                        <button onClick={handleStartReplay}>Start</button>
-                        <button onClick={handleFirstPoint}>First Point</button>
-                        <button onClick={handleSecondPoint}>Second Point</button>
+                        <button onClick={handleStartReplay}>{playReplayButton}</button>
+                        <button onClick={handleFirstPoint}>First Point: {firstPoint}</button>
+                        <button onClick={handleSecondPoint}>Second Point: {secondPoint}</button>
                     </div>
 
                 </div>
