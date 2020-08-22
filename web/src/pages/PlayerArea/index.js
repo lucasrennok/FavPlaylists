@@ -11,8 +11,10 @@ import ReplayControl from 'video-react/lib/components/control-bar/ReplayControl'
 import ForwardControl from 'video-react/lib/components/control-bar/ForwardControl';
 import PlaybackRateMenuButton from 'video-react/lib/components/control-bar/PlaybackRateMenuButton';
 import VolumeMenuButton from 'video-react/lib/components/control-bar/VolumeMenuButton';
-import LoadingSpinner from 'video-react/lib/components/LoadingSpinner';
+
 import BigPlayButton from 'video-react/lib/components/BigPlayButton';
+
+import secondsToMinutesToHours from '../../utils/secondsToMinutes'
 
 // I need to pass the URL
 function PlayerArea({props}){
@@ -30,7 +32,7 @@ function PlayerArea({props}){
     function handleFirstPoint(){
         const statePlayer = player.getState()
         if(statePlayer.player.currentTime<secondPoint){
-            setFirstPoint(statePlayer.player.currentTime);
+            setFirstPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
         }else{
             window.alert('Select the second point first');
         }
@@ -39,7 +41,7 @@ function PlayerArea({props}){
     function handleSecondPoint(){
         const statePlayer = player.getState()
         if(statePlayer.player.currentTime>firstPoint){
-            setSecondPoint(statePlayer.player.currentTime);
+            setSecondPoint(Math.round(statePlayer.player.currentTime * 100) / 100);
         }else{
             window.alert('The second point has to be after the first point');
         }
@@ -54,7 +56,9 @@ function PlayerArea({props}){
             player.seek(firstPoint);
             setPlayReplayButton('Running');
             await sleep((secondPoint-firstPoint)*1000);
-            await handleStartReplay();
+            if(player.getState().player.paused===false){
+                await handleStartReplay();
+            }
             setPlayReplayButton('Start');
         }else if(secondPoint-firstPoint<=3){
             player.pause()
@@ -95,9 +99,10 @@ function PlayerArea({props}){
                     </Player>
 
                     <div id="setRepeat">
+                        <label id="repeat-text">Repeat between:</label>
                         <button onClick={handleStartReplay}>{playReplayButton}</button>
-                        <button onClick={handleFirstPoint}>First Point: {firstPoint}</button>
-                        <button onClick={handleSecondPoint}>Second Point: {secondPoint}</button>
+                        <button onClick={handleFirstPoint}>First Point: {secondsToMinutesToHours(firstPoint)}</button>
+                        <button onClick={handleSecondPoint}>Second Point: {secondsToMinutesToHours(secondPoint)}</button>
                     </div>
 
                 </div>

@@ -44,11 +44,15 @@
 #setRepeat button{
     overflow: hidden; /* */
     background-color: var(--color-primary-light);
-    width: 45%;
+    width: 25%;
 }
 
 #setRepeat button:hover{
     opacity: 80%;
+}
+
+#repeat-text{
+    text-shadow: 1px 1px var(--color-secondary-darker);
 }
 
 @media(min-width: 700px){
