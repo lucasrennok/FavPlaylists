@@ -1,15 +1,15 @@
 # <img src="/web/src/assets/images/icons/logo.png" width="50" height="45"> Playlist Platform
-> *Somewhere to save videos in playlists.*
+> :cyclone: *Somewhere to save videos in playlists.*
 
 <img src="/web/src/assets/images/background.png" width="400" height="200">
 
-Use it to save your favorite videos from the internet. You have only to know the source of the video and add it to a playlist.
+:sunny: Use it to save your favorite videos from the internet. You have only to know the source of the video and add it to a playlist.
 
-> See this gif:
+> :bulb: See this gif:
 > 
 > ![executing](/readme_imgs/executing.gif)
 
-> Also, see how buttons under the video works:
+> :bulb: Also, see how buttons under the video works:
 >
 > ![buttons_executing](/readme_imgs/executing_but.gif)
 
@@ -21,7 +21,7 @@ Somethings dependencies to download.
 <img src="https://miro.medium.com/max/2800/1*y5YLuOKO5XM7MOzve6XsDQ.png" width="300" height="150">
 <img src="https://www.trytape.com/wp-content/uploads/2019/10/yarn_image.png" width="200" height="100">
 
-I used: 
+:arrow_forward: I used: 
 - **NPM** and,
 - **YARN**.
 
@@ -57,11 +57,11 @@ First start the **server** and after that start the **web** in different termina
 #### :gem: Select a playlist
 To see the playlists click on 'Playlists':
 
-<img src="/readme_imgs/playlist_but.PNG" width="160" height="80">
+<img src="/readme_imgs/playlist_but.PNG" width="190" height="70">
 
 And you will see the playlists that are already created and there are videos on them.
 
-<img src="/readme_imgs/playlists.PNG" width="500" height="200">
+<img src="/readme_imgs/playlists.PNG" width="500" height="100">
 
 After that you can click on a playlist.
 
@@ -69,7 +69,7 @@ After that you can click on a playlist.
 
 You can search the videos at:
 
-<img src="/readme_imgs/search.PNG" width="170" height="80">
+<img src="/readme_imgs/search.PNG" width="190" height="70">
 
 Press Enter and the results will appear like this:
 
@@ -81,11 +81,11 @@ Select what video you want. :pushpin:
 
 Click on 'FavPl':
 
-<img src="/readme_imgs/favpl.PNG" width="160" height="80">
+<img src="/readme_imgs/favpl.PNG" width="190" height="70">
 
 And the form to create a playlist and to add videos to a playlist will appear:
 
-<img src="/readme_imgs/form_post.PNG" width="500" height="300">
+<img src="/readme_imgs/form_post.PNG" width="550" height="350">
 
 Complete the form and press submit to create a playlist and add a video to it or to add a video to a playlist that already exist.
 
