@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImg from '../../assets/images/background.png'
+import backgroundImg from '../../assets/images/background2.png'
 
 import './styles.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
