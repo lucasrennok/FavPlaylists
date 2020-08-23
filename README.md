@@ -1,4 +1,4 @@
-# <img src="/web/src/assets/images/icons/logo.png" width="50" height="45"> Playlist Platform
+# <img src="/web/src/assets/images/icons/logo.png" width="50" height="45"> FavPlaylists
 > :cyclone: *Somewhere to save videos in playlists.*
 
 <img src="/web/src/assets/images/background.png" width="400" height="200">
