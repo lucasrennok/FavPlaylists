@@ -52,6 +52,8 @@ Go to the 'server' folder and put:
 
 ## :abcd: How it works
 
+First start the **server** and after that start the **web** in different terminals/command prompts, after that acess 'localhost:3000' in your browser.
+
 #### :gem: Select a playlist
 To see the playlists click on 'Playlists':
 
