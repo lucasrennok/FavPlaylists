@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { Player } from 'video-react';
 import 'video-react/dist/video-react.css'; // import css
@@ -16,7 +16,6 @@ import BigPlayButton from 'video-react/lib/components/BigPlayButton';
 
 import secondsToMinutesToHours from '../../utils/secondsToMinutes'
 
-// I need to pass the URL
 function PlayerArea({props}){
     const urlVideo = props.location.state.urlVideo;
     const titleVideo = props.location.state.titleVideo;
@@ -86,7 +85,6 @@ function PlayerArea({props}){
         setPlayer(newPlayer);
     }
 
-    //to pick the videos from a playlist
     return (
         <div className="page-player">
             <PageHeader />
