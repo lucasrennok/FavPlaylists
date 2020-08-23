@@ -89,9 +89,6 @@ And the form to create a playlist and to add videos to a playlist will appear:
 
 Complete the form and press submit to create a playlist and add a video to it or to add a video to a playlist that already exist.
 
-## :question: Future Challenges
-1. [ ] Add more videos in a playlist on one submit
-
 ## :v: Want to help?
 
 - Make a fork
