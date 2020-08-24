@@ -16,7 +16,7 @@
 These buttons set a period that the video will loop. Pause the video to stop the loop.
 
 ## :floppy_disk: Requirements
-Somethings dependencies to download.
+Some dependencies to download.
 
 <img src="https://miro.medium.com/max/2800/1*y5YLuOKO5XM7MOzve6XsDQ.png" width="300" height="150">
 <img src="https://www.trytape.com/wp-content/uploads/2019/10/yarn_image.png" width="200" height="100">
