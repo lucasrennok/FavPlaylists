@@ -1,59 +1,52 @@
-.page-landing{
-    background: var(--color-grey);
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+.page-landing {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.div-content{
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+.div-content {
+  flex: 1;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
 }
 
-.backgroundImg{
-    border-radius: 5rem;
-    margin: 3rem;
-    width: 60%;
+.backgroundImg {
+  border-radius: 2rem;
+  width: min(80%, 360px);
+  box-shadow: var(--shadow);
 }
 
-.text-landing{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+.text-landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.text-landing h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-shadow: none;
+}
+.text-landing h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
-h1,h2{
-    color: var(--color-secondary-light);
-    text-shadow: 0.3rem 0.3rem var(--color-primary-darker);
-}
-
-@media(min-width: 700px){
-    .div-content{
-        flex-direction: row;
-        width: 100%;
-    }
-    .backgroundImg{
-        width: 30%;
-        margin: 5rem;
-        padding: 2rem;
-        margin-left: 7rem;
-    }
-    .text-landing{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin: auto;
-        padding-left: 8%;
-    }
-    h1{
-        font-size: 5rem
-    }
+@media (min-width: 700px) {
+  .div-content { flex-direction: row; gap: 6rem; }
+  .backgroundImg { width: 32%; }
+  .text-landing { align-items: flex-start; text-align: left; }
 }

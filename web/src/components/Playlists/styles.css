@@ -1,40 +1,47 @@
-
-.playlist-videos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary-light);
-    border-radius: 1.5rem;
-    padding: 1rem;
-    margin: 1rem;
+.text-playlists {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin: 20px auto;
+  padding: 8px;
+  width: min(1000px, 94vw);
 }
 
-.text-playlists{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary);
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 0.5rem;
+/* cada "bandeja" de playlists de um tipo */
+.playlist-videos {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  background: var(--color-primary-light);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
 }
 
-.playlist-videos h2{
-    font-size: 2.5rem;
+.playlist-videos h2 {
+  font-size: 1.9rem;
+  color: var(--color-secondary);
+  text-shadow: none;
 }
 
-.video h3{
-    font-size: 2rem;
+/* cada playlist é um "chip" clicável */
+.video {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-primary-dark);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.1s ease;
 }
+.video:hover { border-color: var(--accent); transform: translateY(-1px); opacity: 1; }
+.video h3 { font-size: 1.5rem; color: var(--text); font-weight: 600; }
 
-@media(min-width: 700px){
-    .text-playlists{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        margin: auto;
-    }
+@media (min-width: 700px) {
+  .text-playlists { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .playlist-videos { flex: 1 1 280px; }
 }

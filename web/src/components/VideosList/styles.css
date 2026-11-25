@@ -1,51 +1,50 @@
-
-.playlist-list{
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary-light);
-    border-radius: 1.5rem;
-    padding: 1rem;
-    margin: 1rem;
+.playlist-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: transparent;
+  padding: 12px;
+  margin: 12px auto;
+  width: min(1000px, 94vw);
+  justify-content: center;
 }
 
-.playlist-area{
-    display: flex;
-    background: var(--color-primary);
-    border-radius: 1rem;
-    padding: 0.5rem;
-    margin: 1rem auto;
+.playlist-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+  align-items: start;
+  background: var(--color-primary-light);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  width: 100%;
 }
 
-.playlist-list h2{
-    margin: auto;
-    font-size: 2.5rem;
+.playlist-list h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+  color: var(--color-secondary);
 }
 
-.video-thumb{
-    display: flex;
-    flex-direction: column;
-    color: var(--color-secondary);
-    text-shadow: 0rem 0.1rem var(--color-primary-dark);
-    text-decoration: none;
-    padding: 0.2rem;
-    transition-duration: 0.2s;
+.video-thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text);
+  text-shadow: none;
+  text-decoration: none;
+  background: var(--color-primary-dark);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  transition: border-color 0.15s ease, transform 0.1s ease;
 }
+.video-thumb:hover { border-color: var(--accent); transform: translateY(-2px); opacity: 1; }
+.video-thumb img { width: 100%; border-radius: 8px; }
 
-.video-thumb:hover{
-    opacity: 80%;
-    transition-duration: 0.2s;
-}
-
-@media(min-width: 700px){
-    .playlist-area{
-        display: flex;
-        margin: auto;
-    }
-    
-    .video-thumb{
-        text-decoration: none;
-        padding: 0.5rem;
-    }
+@media (min-width: 700px) {
+  .playlist-area { justify-content: flex-start; }
 }

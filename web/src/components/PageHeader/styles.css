@@ -1,53 +1,51 @@
-.page-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary-dark);
-    width: 100vw;
-    padding: 1rem;
+.page-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--color-primary-dark);
+  border-bottom: 1px solid var(--line);
+  width: 100%;
+  padding: 12px 24px;
 }
 
-.div-playlist{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: auto 0;
+.div-playlist,
+.div-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
-.div-search{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-}
-.div-logo{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: auto 0;
-}
-.homepage, .list-types{
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition-duration: 0.5s;
-}
+.div-logo h2 { font-size: 1.9rem; color: var(--color-secondary); }
+.div-playlist h3 { font-size: 1.5rem; }
 
-.homepage:hover, .list-types:hover{
-    opacity: 80%;
-    transition-duration: 0.5s;
+.div-search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  max-width: 420px;
 }
-
-.icons{
-    width: 5rem;
+.div-search h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
 }
+.searchInput { width: 100%; }
 
-@media(min-width: 700px){
-    .page-header{
-        height: 7rem;
-    }
-    .icons{
-        width: 4rem;
-    }
+.homepage, .list-types {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.homepage:hover, .list-types:hover { color: var(--color-secondary); opacity: 1; }
+
+.icons { width: 3.4rem; height: 3.4rem; object-fit: contain; }
+
+@media (min-width: 700px) {
+  .page-header { height: auto; }
+  .icons { width: 3.4rem; }
 }

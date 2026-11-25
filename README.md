@@ -1,100 +1,54 @@
-# <img src="/web/src/assets/images/icons/logo.png" width="50" height="45"> FavPlaylists
-> :cyclone: *Somewhere to save videos in playlists.*
+# <img src="web/src/assets/images/icons/logo.png" width="46" height="46"> FavPlaylists
 
-<img src="/web/src/assets/images/background.png" width="400" height="200">
+> :cyclone: *Um lugar para salvar vídeos favoritos em playlists.*
 
-:sunny: Use it to save your favorite videos from the internet. You have only to know the source of the video and add it to a playlist.
+Salve seus vídeos favoritos da internet organizados em **playlists**, que ficam
+em bandejas na home. Dá também para colocar um vídeo em **loop por um período**
+definido.
 
-> :bulb: See this gif:
-> 
-> ![executing](/readme_imgs/executing.gif)
+![interface](readme_imgs/interface.png)
 
-> :bulb: Also, see how buttons under the video works:
->
-> ![buttons_executing](/readme_imgs/executing_but.gif)
+Stack: **React** (front-end, com `video-react` e `redux`) + **Node/Express**
+com **Knex** e **SQLite** (back-end).
 
-These buttons set a period that the video will loop. Pause the video to stop the loop.
+## :rocket: Como rodar
 
-## :floppy_disk: Requirements
-Some dependencies to download.
+Precisa de **Node.js**. Abra dois terminais.
 
-<img src="https://miro.medium.com/max/2800/1*y5YLuOKO5XM7MOzve6XsDQ.png" width="300" height="150">
-<img src="https://www.trytape.com/wp-content/uploads/2019/10/yarn_image.png" width="200" height="100">
+**1. Servidor** (pasta `server/`):
 
-:arrow_forward: I used: 
-- **NPM** and,
-- **YARN**.
+```sh
+cd server
+npm install
+npm start              # sobe a API em http://localhost:3333
+```
 
-### :arrow_down_small: Downloads:
+**2. Front-end** (pasta `web/`):
 
-**:mega: Web:**
-> - yarn add react-router-dom react
-> - npm install --save video-react react react-dom redux
+```sh
+cd web
+npm install
+npm start              # abre http://localhost:3000
+```
 
-**:mega: Server:**
-> - yarn add express
-> - yarn add @types/express
-> - yarn add typescript
-> - yarn add ts-node
-> - yarn add ts-node-dev
+> O projeto foi feito com Yarn na época; os comandos acima usam npm, mas
+> `yarn` também funciona.
 
-### :boom: Starting it
+## :abcd: Como funciona
 
-**:star: WEB:**
+- **Playlists:** clique em **Playlists** para ver as bandejas por tipo. Clique
+  em uma playlist para abrir seus vídeos no player.
+- **Buscar vídeos:** use o campo de busca no topo, aperte Enter e escolha um
+  resultado.
+- **Criar / adicionar:** clique em **FavPL** para abrir o formulário e criar uma
+  playlist nova ou adicionar um vídeo a uma existente.
+- **Loop por período:** os botões abaixo do vídeo definem um intervalo em que o
+  vídeo fica repetindo. Pause o vídeo para parar o loop.
 
-Go to the 'web' folder and put:
-> yarn start
+## :v: Quer ajudar?
 
-**:star: SERVER:**
+- Faça um fork
+- Mande sugestões
+- Dê uma star no projeto
 
-Go to the 'server' folder and put:
-> yarn start
-
-## :abcd: How it works
-
-First start the **server** and after that start the **web** in different terminals/command prompts, after that acess 'localhost:3000' in your browser.
-
-#### :gem: Select a playlist
-To see the playlists click on 'Playlists':
-
-<img src="/readme_imgs/playlist_but.PNG" width="190" height="70">
-
-And you will see the playlists that are already created and there are videos on them.
-
-<img src="/readme_imgs/playlists.PNG" width="500" height="100">
-
-After that you can click on a playlist.
-
-#### :gem: Search video
-
-You can search the videos at:
-
-<img src="/readme_imgs/search.PNG" width="190" height="70">
-
-Press Enter and the results will appear like this:
-
-<img src="/readme_imgs/search_results.PNG" width="550" height="300">
-
-Select what video you want. :pushpin:
-
-## :zap: How to create new playlists
-
-Click on 'FavPl':
-
-<img src="/readme_imgs/favpl.PNG" width="190" height="70">
-
-And the form to create a playlist and to add videos to a playlist will appear:
-
-<img src="/readme_imgs/form_post.PNG" width="550" height="350">
-
-Complete the form and press submit to create a playlist and add a video to it or to add a video to a playlist that already exist.
-
-## :v: Want to help?
-
-- Make a fork
-- Send me suggestions
-- If you found an error, contact me
-- Give a star to this project
-- Share this repository with your friends
-
-**Thank you, enjoy it, haha, :wink:**
+**Obrigado, aproveite** :wink:
